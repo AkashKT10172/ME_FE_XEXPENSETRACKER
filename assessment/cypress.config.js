@@ -1,22 +1,27 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-  },
   reporter: "mochawesome",
+
   reporterOptions: {
-    // To display small circular charts regarding test results
-    charts: true,
-    // Generate JSON file to create custom reports
-    json: true,
-    // Customize the directory in which reports are saved
-    reportsDir: "reports/your-reports-folder",
-    // Customize the report file name
-    reportFilename: "my-report",
-    // Generate new report file or overwrite the a single file
+    reportDir: "cypress/reports/mocha", // Directory for reports
     overwrite: false,
+    html: true,
+    json: true,
+  },
+
+  e2e: {
+    // Specifying the pattern to match your test files
+    specPattern: 'cypress/e2e/**/*.cy.js', // Update this path based on where your tests are stored
+
+    // Optionally, set up a base URL for your app
+    baseUrl: 'http://localhost:3000', // Replace with your app's base URL
+
+    // Support file to load global configurations or utilities
+    supportFile: 'cypress/support/e2e.js', // Update the support file location if needed
+
+    setupNodeEvents(on, config) {
+      // Add any custom event listeners here, such as for test retries or video recording
+    },
   },
 });
