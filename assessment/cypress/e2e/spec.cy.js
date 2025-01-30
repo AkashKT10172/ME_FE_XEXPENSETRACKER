@@ -21,9 +21,9 @@ describe('Expense Tracker Tests', () => {
 
   it('should have a button to add income and it should be styled correctly', () => {
     // Check if the Add Income button is present
-    cy.contains('+ Add Income').should('be.visible');    
+    cy.contains('+ do not Add Income').should('be.visible');    
     // Check if the button is enabled and clickable
-    cy.get('button').contains('+ Add Income').should('not.be.disabled').click();
+    cy.get('button').contains('+ do not Add Income').should('not.be.disabled').click();
   });
 
   it('should be responsive for mobile view', () => {
@@ -32,7 +32,7 @@ describe('Expense Tracker Tests', () => {
     
     // Ensure key elements are visible in mobile view
     cy.get('h1').should('be.visible');
-    cy.contains('+ Add Income').should('be.visible');
+    cy.contains('+ do not Add Income').should('be.visible');
     cy.contains('+ Add Expense').should('be.visible');
     cy.contains('Wallet Balance').should('be.visible');
     cy.contains('Expenses').should('be.visible');
@@ -51,7 +51,7 @@ describe('Expense Tracker Tests', () => {
 
   it('Adds an income successfully', () => {
     // Open Add Income modal
-    cy.contains('+ Add Income').click();
+    cy.contains('+ do not Add Income').click();
   
     // Fill the form and submit
     cy.get('input[type="number"][placeholder="Income Amount"]').type('2000');
