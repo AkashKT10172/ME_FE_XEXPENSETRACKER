@@ -115,7 +115,7 @@ export default function Home() {
         <Card
           title="Wallet Balance"
           money={balance}
-          buttonText="+ Add Income"
+          buttonText="+ Dont't Add Income"
           buttonType="success"
           handleClick={() => {
             setIsOpenBalance(true);
